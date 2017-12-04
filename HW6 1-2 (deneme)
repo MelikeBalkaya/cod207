@@ -1,0 +1,246 @@
+int rectX, rectY;      // Position of square button
+
+int rectSize = 200;     // Diameter of rect
+
+color rectColor;
+color rectHighlight;
+color currentColor;
+boolean rectOver = false;
+
+void setup() {
+  
+  size(500,500);
+  background (#F088E4);
+   rectColor = color(#FAA7F0);
+  rectHighlight = color(#F7D9F4);
+  
+
+  currentColor = rectHighlight;
+
+  rectX = width/2-rectSize-10;
+  rectY = height/2-rectSize/2;
+}
+    
+    void draw () {
+      update(mouseX, mouseY);
+  background(currentColor);
+  
+  if (rectOver) {
+    fill(rectColor);
+  } else {
+    fill(rectHighlight);
+  }
+  stroke(255);
+  rect(rectX+100, rectY, rectSize, rectSize/2);
+  
+}  
+
+void update(int x, int y) {
+
+  
+    rectOver = false;
+    rectOver = true;
+
+}
+
+
+void mousePressed() {
+
+  if (rectOver) {
+    currentColor = rectColor;
+  }
+}
+
+boolean overRect(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+   
+   
+   
+   
+   
+   
+   
+   
+   float x;
+float y;
+
+float xb;
+float yb;
+
+int x1 =200;
+int dx1 =2;
+
+int y1 =200;
+int dy1=2;
+
+float pct = 0.1;
+
+void setup() {
+  size(900, 900);
+}
+
+
+void draw() {
+  background(255);
+  xb = mouseX;
+  yb = mouseY;
+
+
+
+    pushMatrix();
+  translate(x-50,y-50);
+  // draw ellipse with mouse coord.
+  noStroke();
+  fill(#ADABAB);
+  ellipse(235,200,142,134);
+  
+  // Draw rectangle
+  noStroke();
+  fill(#F55F39);
+rect(136,124,200,47);
+
+  noStroke();
+  fill(#F55F39);
+rect(175,79,122,54);
+  
+   noStroke();
+  fill(#ADABAB);
+rect(205,236,58,48);
+
+   noStroke();
+  fill(#ADABAB);
+rect(175,280,131,143);
+
+   noStroke();
+  fill(#ADABAB);
+rect(199,421,33,79);
+  
+     noStroke();
+  fill(#ADABAB);
+rect(252,421,33,79);
+
+   noStroke();
+  fill(#ADABAB);
+rect(306,287,94,27);
+
+   noStroke();
+  fill(#ADABAB);
+rect(373,192,27,95);
+
+   noStroke();
+  fill(#ADABAB);
+rect(80,287,95,27);
+
+   noStroke();
+  fill(#ADABAB);
+rect(80,300,27,95);
+
+   noStroke();
+  fill(#F55F39);
+rect(170,482,62,18);
+
+   noStroke();
+  fill(#F55F39);
+rect(252,482,62,18);
+
+   noStroke();
+  fill(#97D7D8);
+rect(195,298,93,107);
+
+  // draw ellipse 
+  noStroke();
+  fill(#394343);
+  ellipse(200,200,29,34);
+  
+  noStroke();
+  fill(#394343);
+  ellipse(270,200,29,34);
+  
+   noStroke();
+  fill(#FFFFFF);
+  ellipse(200,200,23,25);
+  
+     noStroke();
+  fill(#FFFFFF);
+  ellipse(270,200,23,25);
+  
+       noStroke();
+  fill(#376B6C);
+  ellipse(202,200,11,13);
+  
+         noStroke();
+  fill(#376B6C);
+  ellipse(270,200,11,13);
+  
+     noStroke();
+  fill(#DDB3E0);
+rect(210,230,52,20);
+
+  // Draw rectangle
+  noStroke();
+  fill(#F55F39);
+rect(368,192,37,53);
+
+  // Draw rectangle
+  noStroke();
+  fill(#F55F39);
+rect(75,342,37,53);
+
+     noStroke();
+  fill(#20A517);
+rect(206,315,73,8);
+
+     noStroke();
+  fill(#20A517);
+rect(211,329,63,8);
+
+     noStroke();
+  fill(#20A517);
+rect(218,343,49,8);
+
+     noStroke();
+  fill(#20A517);
+rect(225,357,36,8);
+
+     noStroke();
+  fill(#20A517);
+rect(234,371,18,8);
+
+     noStroke();
+  fill(#20A517);
+rect(239,385,8,8);
+
+  popMatrix();
+    // expo moving algorithm
+  x = x + (xb - x) * pct;
+  y = y + (yb - y) * pct;
+  
+ 
+  ellipse (x1,y1,50,50);
+  fill(#F088E4);
+  x1 = x1+dx1;
+  y1 = y1+ dy1;
+  
+  
+  if(x1 > width) {
+    dx1 = -1; 
+  }
+ if ( x1<0) {
+   dx1=1;
+ }
+  if(y1 > height) {
+    dy1 = -1;
+  }
+ if ( y1<0) {
+   dy1=1;
+ }
+
+}
+
